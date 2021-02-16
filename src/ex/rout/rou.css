@@ -1,0 +1,39 @@
+#js {
+  height: 5rem;
+  width: 5rem;
+  position: relative;
+  top: 0rem;
+  left: 0rem;
+}
+#html {
+  width: 5rem;
+  position: relative;
+  top: 0rem;
+  left: 5.5rem;
+}
+#nodejs {
+  height: 3.5rem;
+  width: 5rem;
+  position: relative;
+  top: 17rem;
+  left: -5rem;
+}
+#css {
+  height: 6rem;
+  width: 4rem;
+  position: relative;
+  top: 17rem;
+  left: 1rem;
+}
+#react {
+  height: 6rem;
+  width: 8rem;
+  position: relative;
+  top: 10rem;
+  left: 0rem;
+}
+
+p {
+  width: 40rem;
+  margin: auto;
+}
