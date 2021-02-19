@@ -32,6 +32,7 @@ export default function CartHandler() {
   const [fnt, setFnt] = useState();
   const [cnt, setCnt] = useState();
   const [bck, setBck] = useState();
+
   const [txtalign, setTxtalign] = useState("Normal mode");
   const [cart, setCart] = useState(0);
 
@@ -237,6 +238,7 @@ export default function CartHandler() {
 
       <small style={{ display: "none" }}>
         {(document.body.style.backgroundColor = bck)}
+        {(document.body.style.color = fnt)}
       </small>
     </div>
   );
