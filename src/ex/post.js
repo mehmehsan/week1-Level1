@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { withRouter } from "react-router-dom";
 import "./style.css";
 
 export default function PostHandler() {
   const [textcount, setTextcount] = useState();
+  const [opac, setOpac] = useState(0.01);
   return (
     <div>
       <h1> Post Counter </h1>
@@ -11,10 +13,28 @@ export default function PostHandler() {
         type="text"
         onChange={(e) => {
           setTextcount(e.target.value);
+          setOpac(e.target.value.length / 150);
         }}
       />
       <br />
-      {textcount && <h2>Text count : {textcount.length} </h2>}
+      <button
+        style={{
+          height: "3rem",
+          width: "3rem",
+          background: "red",
+          borderRadius: "45%",
+          opacity: opac
+        }}
+      ></button>
+      <br />
+      {textcount && textcount.length < 150 && (
+        <h2>Text count : {textcount.length} </h2>
+      )}
+      {!textcount && <h1> Insert Text </h1>}
+      {textcount && textcount.length >= 150 && (
+        <h2>Text count : Max- Char reached 150 words </h2>
+      )}
+      <br />
     </div>
   );
 }
