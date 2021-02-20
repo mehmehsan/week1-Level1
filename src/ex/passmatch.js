@@ -9,7 +9,7 @@ export default function PassMatcher() {
 
   // var reg= /^([a-zA-Z0-9\.-]+)@([a-zA-Z0-9]+)\.([a-z]+)(.[a-z]+)?$/;
 
-  var reg = /([a-zA-Z0-9]{5,8}$)/;
+  var reg = /([0-9])/;
   useEffect(() => {
     if (pass === repass) setBdr("solid 4px green");
     else setBdr("solid 4px red");

@@ -13,3 +13,7 @@ output {
   height: 10rem;
   width: 10rem;
 }
+
+li:hover {
+  background-color: aqua;
+}

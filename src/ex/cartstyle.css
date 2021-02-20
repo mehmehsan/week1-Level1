@@ -124,7 +124,7 @@ ul li {
 }
 
 li:hover {
-  background-color: #111111;
+  background-color: gray;
   border: solid white 0.1rem;
 }
 
