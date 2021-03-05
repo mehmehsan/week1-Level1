@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./style.css";
 
-export default function TextLinker() {
+export default function MyFigma() {
   var size;
   const [textSize, setTextSize] = useState(0);
 

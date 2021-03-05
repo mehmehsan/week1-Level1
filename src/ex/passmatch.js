@@ -50,7 +50,9 @@ export default function PassMatcher() {
       <small id="shpass">Show password</small>
       <br />
       <br />
-      {!reg.test(pass) && <div>Password should contain a number </div>}
+      {!reg.test(pass) && (
+        <div style={{ color: "red" }}>Password should contain a number </div>
+      )}
       <br />
       {reg.test(pass) && !repass.localeCompare(pass) && (
         <div>

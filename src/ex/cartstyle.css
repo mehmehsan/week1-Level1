@@ -14,9 +14,6 @@ body {
   margin: 0rem 0rem;
   cursor: "pointer";
 }
-.App {
-  height: 110rem;
-}
 
 #post {
   position: relative;
@@ -37,10 +34,7 @@ body {
   position: relative;
   top: 2rem;
 }
-#shppass {
-  position: relative;
-  right: 15rem;
-}
+
 .Img {
   height: 3rem;
   width: 3rem;
@@ -94,14 +88,13 @@ input {
   outline: none;
 }
 
-div.relative {
+#cartTotal {
   position: relative;
-  left: 76.5rem;
-  top: -5.5rem;
+  top: -9rem;
+  left: 30.5rem;
   font-family: "Mallanna", sans-serif;
   color: var(--primary-color);
   font-size: 1.7rem;
-  width: 2rem;
 }
 
 ul {
@@ -133,57 +126,12 @@ ul li.dropdownIcon {
 }
 
 .event {
+  display: block;
+  margin: auto;
   height: 20rem;
   width: 80rem;
   position: relative;
   top: 1rem;
-}
-#amznPage {
-  position: relative;
-  top: 5rem;
-  left: -1.1rem;
-  padding: 1rem 1rem;
-  background-color: pink;
-  font-family: "Mallanna", sans-serif;
-  font-size: 3rem;
-  border-radius: 1rem;
-}
-
-#item1 {
-  position: relative;
-  top: 2.4rem;
-  left: 65rem;
-  width: 12rem;
-  padding: 1rem 1rem;
-  border: 0.5rem solid pink;
-  border-radius: 1rem;
-}
-#item2 {
-  position: relative;
-  bottom: 22rem;
-  left: 20rem;
-  width: 12rem;
-  padding: 1rem 1rem;
-  border: 0.5rem solid pink;
-  border-radius: 1rem;
-}
-#item3 {
-  position: relative;
-  top: -15.8rem;
-  left: 65rem;
-  width: 12rem;
-  padding: 1rem 1rem;
-  border: 0.5rem solid pink;
-  border-radius: 1rem;
-}
-#item4 {
-  position: relative;
-  bottom: 40rem;
-  left: 20rem;
-  width: 12rem;
-  padding: 1rem 1rem;
-  border: 0.5rem solid pink;
-  border-radius: 1rem;
 }
 
 a {
@@ -192,17 +140,28 @@ a {
 }
 
 .watches,
-.jewellery,
-.shirts,
-.women,
-.salwaar,
-.purse {
+.Jewellery,
+.Men,
+.Fashion {
   height: 10rem;
   width: 10rem;
+  padding: 1rem 1rem;
+  grid-area: a;
 }
 .watches {
-  width: 7rem;
+  width: 9rem;
 }
+.container {
+  position: relative;
+  top: 3rem;
+  left: 4rem;
+
+  display: inline;
+}
+.container li {
+  color: black;
+}
+
 button {
   border-radius: 0.5rem;
   cursor: "pointer";
@@ -320,75 +279,11 @@ button {
     width: 19rem;
     position: relative;
   }
-  #amznPage {
-    position: relative;
-    top: 1rem;
-    left: 0rem;
-    padding: 0.5rem 1rem;
-    background-color: pink;
-    font-family: "Mallanna", sans-serif;
-    font-size: 1.5rem;
-  }
-  #item1 {
-    position: relative;
-    top: 2rem;
-    left: 1rem;
-    border: solid pink;
-    width: 7rem;
-    padding: 0.3rem 0.3rem;
-    border-radius: 1rem;
-  }
-  #item2 {
-    position: relative;
-    top: -8.2rem;
-    right: -12.5rem;
-    border: solid pink;
-    width: 7rem;
-    padding: 0.3rem 0.3rem;
-    border-radius: 1rem;
-  }
-  #item3 {
-    position: relative;
-    top: -3rem;
-    left: 1rem;
-    border: solid pink;
-    width: 7rem;
-    padding: 0.3rem 0.3rem;
-    border-radius: 1rem;
-  }
-  #item4 {
-    position: relative;
-    top: -13.35rem;
-    right: -12.5rem;
-    border: solid pink;
-    width: 7rem;
-    padding: 0.3rem 0.3rem;
-    border-radius: 1rem;
-  }
-  #item5 {
-    position: relative;
-    top: -8rem;
-    left: 1rem;
-    border: solid pink;
-    width: 7rem;
-    padding: 0.3rem 0.3rem;
-    border-radius: 1rem;
-  }
-  #item6 {
-    position: relative;
-    top: -18.3rem;
-    right: -12.5rem;
-    border: solid pink;
-    width: 7rem;
-    padding: 0.3rem 0.3rem;
-    border-radius: 1rem;
-  }
+
   .watches,
-  .jewellery,
-  .shirts,
-  .women,
-  .salwaar,
-  .purse {
+  .Jewellery,
+  .Fashion,
+  .Men {
     height: 5rem;
     width: 5rem;
   }

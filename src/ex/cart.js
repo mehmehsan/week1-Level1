@@ -1,45 +1,26 @@
 import React, { useState } from "react";
+import CartList from "./cartlist";
 import { ReactComponent as Img } from "./shopping-cart.svg";
 import "./cartstyle.css";
 
 var cntt = 0;
 
-// const allProducts = {
-//   // ALL: [
-//   //   "MARICO : 9/10 ",
-//   //   "ITC : 8/10 ",
-//   //   "INFOSYS : 7/10 ",
-//   //   "DIVISLAB : 6/10 ",
-//   //   "RELAXO : 5/10 "
-//   // ],
-
-//   Fashion: ["MARICO ", "ITC "],
-
-//   Electronics: "INFOSYS",
-
-//   Books: "DIVISLAB",
-
-//   Baby: "HDFC",
-
-//   Watches: "INDRAPRASTHA GAS",
-
-//   Others: "RELAXO"
-// };
-
-// var setProducts = Object.keys(allProducts);
-
-export default function CartHandler() {
+function AddDescription() {
+  let cartTotal = 0;
   const [fnt, setFnt] = useState();
   const [cnt, setCnt] = useState();
   const [bck, setBck] = useState();
+  const [cartObj, setCartObj] = useState([
+    { labl: "Watches", cnt: 0 },
+    { labl: "Fashion", cnt: 0 },
+    { labl: "Men", cnt: 0 },
+    { labl: "Jewellery", cnt: 0 },
+    { labl: "DialWatches", cnt: 0 },
+    { labl: "G-shirts", cnt: 0 },
+    { labl: "NeckLaces", cnt: 0 }
+  ]);
 
   const [txtalign, setTxtalign] = useState("Normal mode");
-  const [cart, setCart] = useState(0);
-
-  const [scont, setScount] = useState(0);
-  const [jcont, setJcount] = useState(0);
-  const [wcont, setWcount] = useState(0);
-  const [wocont, setWocount] = useState(0);
 
   function dropDown() {
     var x = document.getElementById("navigation");
@@ -63,7 +44,36 @@ export default function CartHandler() {
     setCnt(cntt++);
   }
 
-  function dealHandler() {}
+  function ProductItem(props) {
+    return (
+      <li id={props.id}>
+        <img className={props.clss} src={props.src} alt="loading" />
+        <br />
+        <div>{props.discription}</div>
+        <div>
+          <strong style={{ color: "red" }}>{props.discount}</strong>
+          {props.price}
+        </div>
+        <small> {props.taxText}</small>
+        <br />
+        <button
+          id={props.id}
+          onClick={() => {
+            setCartObj(
+              [
+                ...cartObj,
+                (cartObj[+props.id - 1].cnt = cartObj[+props.id - 1].cnt + 1)
+              ].splice(0, cartObj.length)
+            );
+            // console.log(cartObj[+props.id - 1].cnt);
+            // console.log(cartObj);
+          }}
+        >
+          Add to Cart
+        </button>
+      </li>
+    );
+  }
 
   return (
     <div className="App" style={{ color: fnt }}>
@@ -73,7 +83,6 @@ export default function CartHandler() {
           src="https://media.tenor.com/images/3cb35d3e2cd245a3322923c4eb54c0bf/tenor.gif"
           alt="loading"
           width="100rem"
-          onClick={dealHandler}
         />
         <span id="name"> Flanbieuto</span>
         <span id="searchBar">
@@ -90,156 +99,127 @@ export default function CartHandler() {
         <input type="text" />
         <input type="button" value="🔍" id="button" />
 
-        <Img className="Img" />
-        <div class="relative">
-          <strong>{cart}</strong>
-        </div>
+        <Img className="Img" onClick={<CartList />} />
       </header>
       <nav>
-        <ul id="navigation" className="navigation">
-          <li>
-            <a href="https://amzn.to/2LfWK5c"> All </a>
-          </li>
-          <li className="navigationPills">
-            <a href="https://amzn.to/3cHjhDi"> Fashion </a>
-          </li>
-          <li className="navigationPills">
-            <a href="https://amzn.to/3cD031L"> Electronics </a>
-          </li>
-          <li className="navigationPills">
-            <a href="https://amzn.to/3q1XQAZ"> Consumer Goods</a>
-          </li>
-          <li className="navigationPills">
-            <a href="https://amzn.to/3pQVp3N"> Footwear </a>
-          </li>
-          <li className="navigationPills">
-            <a href="https://amzn.to/3tuOe3x"> Handbags</a>
-          </li>
-          <li className="navigationPills">
-            <a href="https://amzn.to/39Ka23s">Watches</a>
-          </li>
-          <li className="navigationPills">
-            <a href="https://amzn.to/3oOfIxF">Today's Deals</a>
-          </li>
-          <li className="dropdownIcon" onClick={dropDown}>
-            &#9776;
-          </li>
+        <ul>
+          {cartObj.map((item) => (
+            <li>{item.labl}</li>
+          ))}
         </ul>
+        <div id="cartTotal">
+          {
+            (cartObj.map((item) => {
+              cartTotal = cartTotal + item.cnt;
+            }),
+            cartTotal)
+          }
+        </div>
       </nav>
       <button
         id="outerSwitch"
         style={{ textAlign: txtalign }}
         onClick={darkMode}
       >
-        <button id="innerSwitch"></button>{" "}
+        <button id="innerSwitch"></button>
       </button>
-      <br />
+
       <br />
       <img
         className="event"
         src=" https://m.media-amazon.com/images/G/31/img21/Fashion/Event/V_Day_Flip/AssociateCentral/2148x588_AFVDay.jpg"
         alt="loading"
       />
-      <button id="amznPage">
-        <a href="https://amzn.to/2LfWK5c"> View Deals </a>
-      </button>
-
-      <div id="item1">
-        <img
-          className="watches"
-          src="https://images-na.ssl-images-amazon.com/images/I/814d7DPCPfL._UL1500_.jpg"
-          alt="loading"
-          width="30"
-          height="50"
-        />
-        <br />
-        <button>
-          {" "}
-          <a href="https://amzn.to/2YKtMxq"> Shop Now </a>
-        </button>
-        <br />
-        <button
-          onClick={() => {
-            setWcount(wcont + 1);
-            setCart(cart + 1);
-          }}
-        >
-          Add to cart <div>{wcont} </div>
-        </button>
-      </div>
-      <div id="item2">
-        <img
-          className="jewellery"
-          src="https://m.media-amazon.com/images/I/51viOs7ddqL._SL250_.jpg"
-          alt="loading"
-          width="30"
-          height="50"
-        />
-        <br />
-        <button>
-          {" "}
-          <a href="https://amzn.to/36DzaHi"> Shop Now </a>
-        </button>
-        <br />
-        <button
-          onClick={() => {
-            setJcount(jcont + 1);
-            setCart(cart + 1);
-          }}
-        >
-          Add to cart<div>{jcont} </div>
-        </button>
-      </div>
-      <div id="item3">
-        <img
-          className="shirts"
-          src="https://images-na.ssl-images-amazon.com/images/I/61xXzmOiS4L._UL1467_.jpg"
-          alt="loading"
-          width="30"
-          height="50"
-        />
-        <br />
-        <button>
-          {" "}
-          <a href="https://amzn.to/3rcZIXE"> Shop Now </a>
-        </button>
-        <br />
-        <button
-          onClick={() => {
-            setScount(scont + 1);
-            setCart(cart + 1);
-          }}
-        >
-          Add to cart<div>{scont} </div>
-        </button>
-      </div>
-      <div id="item4">
-        <img
-          className="women"
-          src="https://images-na.ssl-images-amazon.com/images/I/61A7Nn85EJL._UL1500_.jpg"
-          alt="loading"
-          width="30"
-          height="50"
-        />
-        <br />
-        <button>
-          <a href="https://amzn.to/39LrCE2"> Shop Now </a>
-        </button>
-        <br />
-        <button
-          onClick={() => {
-            setWocount(wocont + 1);
-            setCart(cart + 1);
-          }}
-        >
-          Add to cart <div>{wocont} </div>
-        </button>
-      </div>
 
       <small style={{ display: "none" }}>
         {(document.body.style.backgroundColor = bck)}
         {(document.body.style.color = fnt)}
       </small>
+      <ul className="container">
+        <ProductItem
+          id={"1"}
+          discription={"Smart Watches"}
+          price={"Rs 800"}
+          discount={"40% off "}
+          taxText={"inclusive of all tax"}
+          clss={"watches"}
+          src={
+            "https://images-na.ssl-images-amazon.com/images/I/814d7DPCPfL._UL1500_.jpg"
+          }
+        />
+        <ProductItem
+          id={"2"}
+          discription={"Women's apparel"}
+          price={"Rs 800"}
+          discount={"40% off "}
+          taxText={"inclusive of all tax"}
+          clss={"Fashion"}
+          src={
+            "https://images-na.ssl-images-amazon.com/images/I/61A7Nn85EJL._UL1500_.jpg"
+          }
+        />
+        <ProductItem
+          id={"3"}
+          discription={"T-shirts"}
+          price={"Rs 800"}
+          discount={"40% off "}
+          taxText={"inclusive of all tax"}
+          clss={"Men"}
+          src={
+            "https://images-na.ssl-images-amazon.com/images/I/61xXzmOiS4L._UL1467_.jpg"
+          }
+        />
+        <ProductItem
+          id={"4"}
+          discription={"Jewels"}
+          price={"Rs 800"}
+          discount={"40% off "}
+          taxText={"inclusive of all tax"}
+          clss={"Jewellery"}
+          src={"https://m.media-amazon.com/images/I/51viOs7ddqL._SL250_.jpg"}
+        />
+        <ProductItem
+          id={"5"}
+          discription={"DialWatch"}
+          price={"Rs 800"}
+          discount={"40% off "}
+          taxText={"inclusive of all tax"}
+          clss={"watches"}
+          src={
+            "https://images-na.ssl-images-amazon.com/images/I/41NNz935xpL.jpg"
+          }
+        />
+        <ProductItem
+          id={"6"}
+          discription={"GShirt"}
+          price={"Rs 800"}
+          discount={"40% off "}
+          taxText={"inclusive of all tax"}
+          clss={"Fashion"}
+          src={
+            "https://images-na.ssl-images-amazon.com/images/I/61Z4kXc6JSL._UL1440_.jpg"
+          }
+        />
+        <ProductItem
+          id={"7"}
+          discription={"neclates"}
+          price={"Rs 800"}
+          discount={"40% off "}
+          taxText={"inclusive of all tax"}
+          clss={"Jewellery"}
+          src={
+            "https://images-na.ssl-images-amazon.com/images/I/71D71wj7KML._UL1500_.jpg"
+          }
+        />
+      </ul>
+    </div>
+  );
+}
+
+export default function CartHandler() {
+  return (
+    <div className="App">
+      <AddDescription />
     </div>
   );
 }
