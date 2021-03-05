@@ -13,7 +13,28 @@ output {
   height: 10rem;
   width: 10rem;
 }
+#ipass {
+  position: relative;
+  top: -0.3rem;
+  margin: 0.4rem;
+}
 
+#pass,
+#repass {
+  position: relative;
+  left: 0rem;
+}
+#check {
+  width: 1rem;
+  margin: 1rem;
+  position: relative;
+  top: 0.3rem;
+  left: -0.1rem;
+}
+#shpass {
+  position: relative;
+  top: -0.5rem;
+}
 @media (max-width: 600px) {
   header {
     height: 8rem;

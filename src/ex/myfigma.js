@@ -20,7 +20,10 @@ export default function MyFigma() {
       <br />
       <br />
       <br />
-      {textSize > 0 && <h2> Your text size : {textSize} px </h2>} <br />
+      {textSize > 0 && (
+        <h2> Your text size (max - 150 words): {textSize} px </h2>
+      )}{" "}
+      <br />
       <br />
       <h1 style={{ fontSize: textSize }}> Text </h1>
       <button

@@ -18,7 +18,7 @@ export default function PassMatcher() {
     <div>
       <h1> Pass-Matcher </h1>
       <div id="ipass"> Enter Password : </div>
-
+      <br />
       <input
         id="pass"
         placeholder="password"
@@ -27,8 +27,9 @@ export default function PassMatcher() {
           setPass(e.target.value);
         }}
       />
-
+      <br />
       <div id="ipass"> Re-enter Password : </div>
+      <br />
       <input
         id="repass"
         placeholder="password"
