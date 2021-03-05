@@ -23,7 +23,7 @@ export default function App() {
 
   return (
     <div className="App">
-      <header style={{ backgroundColor: "darkblue", color: "white" }}>
+      <header style={{ background: "none" }}>
         <h1>NeogCamp Week 1 Excercises</h1>
       </header>
 

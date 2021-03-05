@@ -28,7 +28,7 @@ export default function PostHandler() {
       ></button>
       <br />
       {textcount && textcount.length < 150 && (
-        <h2>Text count : {textcount.length} </h2>
+        <h2>Text count (max - 150 words) : {textcount.length} </h2>
       )}
       {!textcount && <h1> Insert Text </h1>}
       {textcount && textcount.length >= 150 && (
