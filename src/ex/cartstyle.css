@@ -22,14 +22,6 @@ body {
   width: 25rem;
 }
 
-#pass,
-#repass,
-#check {
-  position: relative;
-  top: 0.5rem;
-  left: 6rem;
-}
-
 #text {
   position: relative;
   top: 2rem;

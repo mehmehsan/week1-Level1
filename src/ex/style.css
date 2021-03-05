@@ -23,3 +23,16 @@ output {
   margin: 1rem 25rem;
   border-radius: 1rem;
 }
+
+@media (max-width: 600px) {
+  header {
+    height: 8rem;
+    max-width: 320px;
+  }
+
+  input {
+    width: 10rem;
+    text-align: center;
+    margin: auto;
+  }
+}

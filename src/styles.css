@@ -17,6 +17,7 @@ output {
 @media (max-width: 600px) {
   header {
     height: 8rem;
+    max-width: 320;
   }
 
   input {
@@ -24,5 +25,21 @@ output {
     width: 10rem;
     text-align: center;
     margin: auto;
+  }
+
+  #ipass {
+    position: relative;
+    top: -1rem;
+    margin: 2rem;
+  }
+  #check {
+    width: 1rem;
+    margin: 1rem;
+    position: relative;
+    top: 0.5rem;
+  }
+  #shpass {
+    position: relative;
+    top: -0.5rem;
   }
 }
