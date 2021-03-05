@@ -1,68 +1,87 @@
-.App {
-  font-family: sans-serif;
-  text-align: center;
-}
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap");
+
 body {
-  background: url("https://i.pinimg.com/originals/c8/d6/36/c8d636c1c666b1c999b25cf7c16d6333.jpg");
+  margin: auto;
+  text-align: center;
+  font-family: "Verdana";
+}
+ul {
+  list-style: none;
 }
 
-button {
-  margin: 1rem;
-  padding: 0.8rem 1rem;
+li {
+  display: inline;
+  margin: 0rem 0.5rem;
+}
+
+#symbol,
+#name {
+  width: 5rem;
+  position: relative;
+  left: -25rem;
+}
+#name {
+  position: relative;
+  top: -1rem;
+}
+#searchBar,
+#searchip,
+#button {
+  position: relative;
+  left: -5rem;
+  top: -1rem;
+  width: 3rem;
+  height: 2rem;
+}
+#searchip {
+  height: 1.7rem;
+  width: 15rem;
+}
+.Img {
+  position: relative;
+  top: -3rem;
+  left: 25rem;
+}
+#nav {
+  text-align: left;
+}
+
+#cartTotal {
+  position: relative;
+  top: -8.7rem;
+  left: 66rem;
+  width: 3rem;
+}
+
+#outerSwitch {
+  position: relative;
+  left: 30rem;
+  width: 3rem;
+  border-radius: 2rem;
+  outline: none;
+}
+#innerSwitch {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
   outline: none;
 }
 
-output {
-  height: 10rem;
-  width: 10rem;
+#ProdItem {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-row-gap: 1rem;
 }
-#ipass {
-  position: relative;
-  top: -0.3rem;
-  margin: 0.4rem;
+#ProdItem li {
+  border: solid 3px lightcoral;
+  border-radius: 1rem;
+  padding: 2rem;
 }
-
-#pass,
-#repass {
-  position: relative;
-  left: 0rem;
+#ProdItem li div {
+  margin: 1rem 1rem;
 }
-#check {
-  width: 1rem;
+#ProdItem li input {
+  width: 1.5rem;
+  padding-left: 1rem;
   margin: 1rem;
-  position: relative;
-  top: 0.3rem;
-  left: -0.1rem;
-}
-#shpass {
-  position: relative;
-  top: -0.5rem;
-}
-@media (max-width: 600px) {
-  header {
-    height: 8rem;
-  }
-
-  input {
-    height: 3rem;
-    width: 10rem;
-    text-align: center;
-    margin: auto;
-  }
-
-  #ipass {
-    position: relative;
-    top: -0.3rem;
-    margin: 2rem;
-  }
-  #check {
-    width: 1rem;
-    margin: 1rem;
-    position: relative;
-    top: 0.5rem;
-  }
-  #shpass {
-    position: relative;
-    top: -0.5rem;
-  }
 }

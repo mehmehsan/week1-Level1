@@ -10,7 +10,7 @@ import Router from "./ex/router";
 import React, { useState } from "react";
 
 export default function App() {
-  const [array, setArray] = useState(<Counter />);
+  const [array, setArray] = useState(<CartHandler />);
   const arr = [
     "Counter",
     "MyFigma",
@@ -42,7 +42,6 @@ export default function App() {
                 else if (item === "Router") setArray(<Router />);
               }}
             >
-              {" "}
               {item}
             </li>
           ))}

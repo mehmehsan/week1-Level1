@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import CartList from "./cartlist";
+
 import { ReactComponent as Img } from "./shopping-cart.svg";
-import "./cartstyle.css";
 
 var cntt = 0;
 
@@ -10,14 +9,70 @@ function AddDescription() {
   const [fnt, setFnt] = useState();
   const [cnt, setCnt] = useState();
   const [bck, setBck] = useState();
+  const [cartDisp, setcartDisp] = useState(true);
+  // const [ProdView, setProdView] = useState(<ProductItem />);
   const [cartObj, setCartObj] = useState([
-    { labl: "Watches", cnt: 0 },
-    { labl: "Fashion", cnt: 0 },
-    { labl: "Men", cnt: 0 },
-    { labl: "Jewellery", cnt: 0 },
-    { labl: "DialWatches", cnt: 0 },
-    { labl: "G-shirts", cnt: 0 },
-    { labl: "NeckLaces", cnt: 0 }
+    {
+      labl: "Watches",
+      cnt: 0,
+      price: " Rs 800 ",
+      id: "1",
+      discount: " 40% off ",
+      src:
+        "https://images-na.ssl-images-amazon.com/images/I/814d7DPCPfL._UL1500_.jpg"
+    },
+    {
+      labl: "Fashion",
+      cnt: 0,
+      price: " Rs 800 ",
+      id: "2",
+      discount: " 40% off ",
+      src:
+        "https://images-na.ssl-images-amazon.com/images/I/61A7Nn85EJL._UL1500_.jpg"
+    },
+    {
+      labl: "Men",
+      cnt: 0,
+      price: " Rs 800 ",
+      id: "3",
+      discount: " 40% off ",
+      src:
+        "https://images-na.ssl-images-amazon.com/images/I/61xXzmOiS4L._UL1467_.jpg"
+    },
+    {
+      labl: "Jewellery",
+      cnt: 0,
+      price: " Rs 800 ",
+      id: "4",
+      discount: " 40% off ",
+      src: "https://m.media-amazon.com/images/I/51viOs7ddqL._SL250_.jpg"
+    },
+    {
+      labl: "DialWatches",
+      cnt: 0,
+      price: " Rs 800 ",
+      id: "5",
+      discount: " 40% off ",
+      src: "https://images-na.ssl-images-amazon.com/images/I/41NNz935xpL.jpg"
+    },
+    {
+      labl: "G-shirts",
+      cnt: 0,
+      price: " Rs 800 ",
+      id: "6",
+      discount: " 40% off ",
+      src:
+        "https://images-na.ssl-images-amazon.com/images/I/61Z4kXc6JSL._UL1440_.jpg"
+    },
+    {
+      labl: "NeckLaces",
+      cnt: 0,
+      price: " Rs 800 ",
+      id: "7",
+      discount: " 40% off ",
+      src:
+        "https://images-na.ssl-images-amazon.com/images/I/71D71wj7KML._UL1500_.jpg"
+    }
   ]);
 
   const [txtalign, setTxtalign] = useState("Normal mode");
@@ -44,37 +99,19 @@ function AddDescription() {
     setCnt(cntt++);
   }
 
-  function ProductItem(props) {
+  function CartList() {
+    console.log(cartObj[1].cnt);
+
     return (
-      <li id={props.id}>
-        <img className={props.clss} src={props.src} alt="loading" />
-        <br />
-        <div>{props.discription}</div>
-        <div>
-          <strong style={{ color: "red" }}>{props.discount}</strong>
-          {props.price}
-        </div>
-        <small> {props.taxText}</small>
-        <br />
-        <button
-          id={props.id}
-          onClick={() => {
-            setCartObj(
-              [
-                ...cartObj,
-                (cartObj[+props.id - 1].cnt = cartObj[+props.id - 1].cnt + 1)
-              ].splice(0, cartObj.length)
-            );
-            // console.log(cartObj[+props.id - 1].cnt);
-            // console.log(cartObj);
-          }}
-        >
-          Add to Cart
-        </button>
-      </li>
+      <div>
+        <ul>
+          {cartObj.map((item) => (
+            <li>{item.cnt > 0 && item.labl}</li>
+          ))}
+        </ul>
+      </div>
     );
   }
-
   return (
     <div className="App" style={{ color: fnt }}>
       <header className="header">
@@ -82,40 +119,41 @@ function AddDescription() {
           id="symbol"
           src="https://media.tenor.com/images/3cb35d3e2cd245a3322923c4eb54c0bf/tenor.gif"
           alt="loading"
-          width="100rem"
+          width="5rem"
         />
-        <span id="name"> Flanbieuto</span>
-        <span id="searchBar">
-          <select>
-            <option> All </option>
-            <option> Fashion </option>
-            <option> Electronics </option>
-            <option> Books </option>
-            <option> Baby </option>
-            <option> Watches </option>
-            <option> Today's Deals</option>
-          </select>
-        </span>
-        <input type="text" />
-        <input type="button" value="🔍" id="button" />
+        <label id="name"> Flanbieuto</label>
 
-        <Img className="Img" onClick={<CartList />} />
+        <select id="searchBar">
+          <option> All </option>
+          <option> Fashion </option>
+          <option> Electronics </option>
+          <option> Books </option>
+          <option> Baby </option>
+          <option> Watches </option>
+          <option> Today's Deals</option>
+        </select>
+
+        <input type="text" id="searchip" />
+        <input type="button" value="🔍" id="button" />
       </header>
-      <nav>
+      <Img className="Img" width="2rem" onClick={() => setcartDisp(false)} />
+
+      <nav id="nav">
         <ul>
-          {cartObj.map((item) => (
-            <li>{item.labl}</li>
+          {cartObj.map((item, index) => (
+            <li key={index}>{item.labl}</li>
           ))}
         </ul>
-        <div id="cartTotal">
-          {
-            (cartObj.map((item) => {
-              cartTotal = cartTotal + item.cnt;
-            }),
-            cartTotal)
-          }
-        </div>
       </nav>
+      <div id="cartTotal">
+        {
+          (cartObj.map((item) => {
+            cartTotal = cartTotal + item.cnt;
+          }),
+          cartTotal)
+        }
+      </div>
+
       <button
         id="outerSwitch"
         style={{ textAlign: txtalign }}
@@ -129,94 +167,113 @@ function AddDescription() {
         className="event"
         src=" https://m.media-amazon.com/images/G/31/img21/Fashion/Event/V_Day_Flip/AssociateCentral/2148x588_AFVDay.jpg"
         alt="loading"
+        width="80%"
       />
 
       <small style={{ display: "none" }}>
         {(document.body.style.backgroundColor = bck)}
         {(document.body.style.color = fnt)}
       </small>
-      <ul className="container">
-        <ProductItem
-          id={"1"}
-          discription={"Smart Watches"}
-          price={"Rs 800"}
-          discount={"40% off "}
-          taxText={"inclusive of all tax"}
-          clss={"watches"}
-          src={
-            "https://images-na.ssl-images-amazon.com/images/I/814d7DPCPfL._UL1500_.jpg"
-          }
-        />
-        <ProductItem
-          id={"2"}
-          discription={"Women's apparel"}
-          price={"Rs 800"}
-          discount={"40% off "}
-          taxText={"inclusive of all tax"}
-          clss={"Fashion"}
-          src={
-            "https://images-na.ssl-images-amazon.com/images/I/61A7Nn85EJL._UL1500_.jpg"
-          }
-        />
-        <ProductItem
-          id={"3"}
-          discription={"T-shirts"}
-          price={"Rs 800"}
-          discount={"40% off "}
-          taxText={"inclusive of all tax"}
-          clss={"Men"}
-          src={
-            "https://images-na.ssl-images-amazon.com/images/I/61xXzmOiS4L._UL1467_.jpg"
-          }
-        />
-        <ProductItem
-          id={"4"}
-          discription={"Jewels"}
-          price={"Rs 800"}
-          discount={"40% off "}
-          taxText={"inclusive of all tax"}
-          clss={"Jewellery"}
-          src={"https://m.media-amazon.com/images/I/51viOs7ddqL._SL250_.jpg"}
-        />
-        <ProductItem
-          id={"5"}
-          discription={"DialWatch"}
-          price={"Rs 800"}
-          discount={"40% off "}
-          taxText={"inclusive of all tax"}
-          clss={"watches"}
-          src={
-            "https://images-na.ssl-images-amazon.com/images/I/41NNz935xpL.jpg"
-          }
-        />
-        <ProductItem
-          id={"6"}
-          discription={"GShirt"}
-          price={"Rs 800"}
-          discount={"40% off "}
-          taxText={"inclusive of all tax"}
-          clss={"Fashion"}
-          src={
-            "https://images-na.ssl-images-amazon.com/images/I/61Z4kXc6JSL._UL1440_.jpg"
-          }
-        />
-        <ProductItem
-          id={"7"}
-          discription={"neclates"}
-          price={"Rs 800"}
-          discount={"40% off "}
-          taxText={"inclusive of all tax"}
-          clss={"Jewellery"}
-          src={
-            "https://images-na.ssl-images-amazon.com/images/I/71D71wj7KML._UL1500_.jpg"
-          }
-        />
-      </ul>
+
+      <br />
+      <br />
+      <br />
+      {cartDisp && (
+        <div>
+          <ul id="ProdItem">
+            {cartObj.map((item, index) => (
+              <li key={index}>
+                <img src={item.src} alt="loading" height="50px" width="50px" />
+                <div> {item.labl}</div>
+                <div>
+                  {item.price}
+                  <label style={{ color: "red" }}>{item.discount} </label>
+                </div>
+                <div> {item.taxText} </div>
+                <button
+                  id={item.id}
+                  onClick={() => {
+                    setCartObj(
+                      [
+                        ...cartObj,
+                        (cartObj[+item.id - 1].cnt =
+                          cartObj[+item.id - 1].cnt + 1)
+                      ].splice(0, cartObj.length)
+                    );
+                  }}
+                >
+                  Add to Cart
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      {!cartDisp && (
+        <div>
+          <img
+            src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/whatsapp/273/left-arrow_2b05-fe0f.png"
+            alt="loading"
+            width="50rem"
+            onClick={() => setcartDisp(true)}
+          />
+          <ul id="ProdItem">
+            {cartObj.map(
+              (item, index) =>
+                item.cnt > 0 && (
+                  <li key={index}>
+                    <img
+                      src={item.src}
+                      alt="loading"
+                      height="50px"
+                      width="50px"
+                    />
+                    <div> {item.labl}</div>
+                    <div>
+                      {item.price}
+                      <label style={{ color: "red" }}>{item.discount} </label>
+                    </div>
+                    <div> {item.taxText} </div>
+                    <button
+                      id={item.id}
+                      onClick={() => {
+                        setCartObj(
+                          [
+                            ...cartObj,
+                            (cartObj[+item.id - 1].cnt =
+                              cartObj[+item.id - 1].cnt + 1)
+                          ].splice(0, cartObj.length)
+                        );
+                      }}
+                    >
+                      +
+                    </button>
+                    <input type="number" value={item.cnt} />
+                    <button
+                      id={item.id}
+                      onClick={() => {
+                        setCartObj(
+                          [
+                            ...cartObj,
+                            (cartObj[+item.id - 1].cnt =
+                              cartObj[+item.id - 1].cnt - 1)
+                          ].splice(0, cartObj.length)
+                        );
+                      }}
+                    >
+                      -
+                    </button>
+                  </li>
+                )
+            )}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
 
-export default function CartHandler() {
+export default function CartHandler(cartObj) {
   return (
     <div className="App">
       <AddDescription />
