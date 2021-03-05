@@ -24,7 +24,9 @@ export default function App() {
   return (
     <div className="App">
       <header style={{ background: "none" }}>
-        <h1>NeogCamp Week 1 Excercises</h1>
+        <h1>
+          NeogCamp <br /> Week 1
+        </h1>
       </header>
 
       <strong style={{ margin: "auto", textAlign: "center" }}>
