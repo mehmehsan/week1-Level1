@@ -4,6 +4,7 @@ import ToDo from "./ex/todo";
 import PostHandler from "./ex/post";
 import PassMatcher from "./ex/passmatch";
 import CartHandler from "./ex/cart";
+import "./styles.css";
 
 import Router from "./ex/router";
 import React, { useState } from "react";
@@ -23,7 +24,7 @@ export default function App() {
   return (
     <div className="App">
       <header style={{ backgroundColor: "darkblue", color: "white" }}>
-        <h1>*** NeogCamp Week 1 Excercises ***</h1>
+        <h1>NeogCamp Week 1 Excercises</h1>
       </header>
 
       <strong style={{ margin: "auto", textAlign: "center" }}>
