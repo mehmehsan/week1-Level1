@@ -27,7 +27,7 @@ output {
 @media (max-width: 600px) {
   header {
     height: 8rem;
-    max-width: 320px;
+    /* max-width: 320px; */
   }
 
   input {
