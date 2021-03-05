@@ -18,4 +18,11 @@ output {
   header {
     height: 8rem;
   }
+
+  input {
+    height: 3rem;
+    width: 10rem;
+    text-align: center;
+    margin: auto;
+  }
 }
