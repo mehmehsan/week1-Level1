@@ -75,7 +75,7 @@ function AddDescription() {
     }
   ]);
 
-  const [txtalign, setTxtalign] = useState("Normal mode");
+  const [txtalign, setTxtalign] = useState("left");
 
   function dropDown() {
     var x = document.getElementById("navigation");

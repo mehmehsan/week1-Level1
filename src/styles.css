@@ -86,6 +86,16 @@ li {
   margin: 1rem;
 }
 
+#drkMode {
+  background-color: "black";
+  color: "white";
+}
+
+#lghtMode {
+  background-color: "white";
+  color: "black";
+}
+
 /* Mobile view */
 
 @media (max-width: 600px) {
