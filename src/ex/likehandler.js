@@ -23,7 +23,10 @@ export default function LikeHandler() {
     <div>
       <ul>
         {items.map((item, index) => (
-          <li key={index}>
+          <li
+            key={index}
+            style={{ display: "list-item", margin: "1rem", padding: "1rem" }}
+          >
             {item.item}
             <button
               id={index}

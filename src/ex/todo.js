@@ -1,52 +1,78 @@
 import React, { useState } from "react";
 
-
 export default function ToDo() {
   const [input, setInput] = useState();
-  const [list, setList] = useState([["Here we are", true],["And we go ",false]]);
- const [active,setActive] = useState([]);
- const[completed,setCompleted] = useState([]);
- 
-  
-  function clkHandler(e) {
-        console.log(list[+e.target.id].[0]);
-        list[+e.target.id].[1]=!list[+e.target.id].[1];
-        
-        setList([...list,[,!list[+e.target.id].[1]]].splice(0,list.length));
-   }
-  
+  const [list, setList] = useState([
+    {
+      description: "Here we are",
+      status: true
+    },
+    { description: "And we go ", status: false }
+  ]);
 
-  function handleSubmit() {
-    setList([...list, [input, true]]);
-  }
+  const [showTaskDone, setTaskDone] = useState(true);
+  const [showTaskPending, setPendingTask] = useState(true);
+
   return (
     <div>
       <h1> To do List </h1>
       <input type="text" onChange={(e) => setInput(e.target.value)} />
-      <button onClick={handleSubmit}> Add To List </button>
-     <br/ >
-     
 
-   
-      
-      <ul id="Todo">
+      <button
+        onClick={() =>
+          setList(list.concat({ description: input, status: true }))
+        }
+      >
+        Add To List
+      </button>
+      <br />
+      <button
+        onClick={() => {
+          setTaskDone(true);
+          setPendingTask(true);
+        }}
+      >
+        {" "}
+        Show all
+      </button>
+      <button
+        onClick={() => {
+          setTaskDone(false);
+          setPendingTask(true);
+        }}
+      >
+        Show Completed
+      </button>
+      <button
+        onClick={() => {
+          setPendingTask(false);
+          setTaskDone(true);
+        }}
+      >
+        Show Pending
+      </button>
+      <ul>
         {list.map((item, index) => (
-          <li key={index}
-            >
-         
-            {   item[1] === false && <s>{completed&&item}</s>}
-            { item[1] !== false && <span>{active && item}</span>}
-            <br />
-            <button id={index} onClick={clkHandler}>
-              Done
-            </button>
-            <br/>
-           
-          
+          <li
+            style={{ display: "list-item", margin: "1rem", padding: "1rem" }}
+            key={index}
+            onClick={() => {
+              if (item.status === true)
+                setList(
+                  [...list, (item.status = false)].splice(0, list.length)
+                );
+              else
+                setList([...list, (item.status = true)].splice(0, list.length));
+            }}
+          >
+            {showTaskDone && item.status === true && item.description}
+            {showTaskPending && item.status === false && (
+              <s>{item.description}</s>
+            )}
           </li>
         ))}
       </ul>
-     
+      <br />
     </div>
   );
 }
