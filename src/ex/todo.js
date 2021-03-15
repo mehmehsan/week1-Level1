@@ -25,35 +25,9 @@ export default function ToDo() {
       <input type="text" onChange={(e) => setInput(e.target.value)} />
       <button onClick={handleSubmit}> Add To List </button>
      <br/ >
-      <button onClick={()=>{
-        list.map(item=>{
-           
-            console.log(completed,active);
-          
-          return "";})
-      }}> Show all task </button>
+     
 
-      <button onClick={()=>{
-        list.map(item => {
-          if(item[1])
-          {
-            // setActive(...active,[item[0]]);
-        console.log(item)
-            console.log(active);
-          }
-          return "";}
-          )
-        }}> Show Active task</button>
-
-      <button onClick={()=>{
-        list.map(item=> {
-          if(!item[1])
-          { setCompleted(...completed,[item]);
-            console.log(completed);
-          }
-          return "";
-        })
-      }}> Show Completed task</button>
+   
       
       <ul id="Todo">
         {list.map((item, index) => (

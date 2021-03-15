@@ -4,13 +4,14 @@ import ToDo from "./ex/todo";
 import PostHandler from "./ex/post";
 import PassMatcher from "./ex/passmatch";
 import CartHandler from "./ex/cart";
+import LikeHandler from "./ex/likehandler";
 import "./styles.css";
 
 import Router from "./ex/router";
 import React, { useState } from "react";
 
 export default function App() {
-  const [array, setArray] = useState(<CartHandler />);
+  const [array, setArray] = useState(<Counter />);
   const arr = [
     "Counter",
     "MyFigma",
@@ -18,7 +19,8 @@ export default function App() {
     "PostHandler",
     "PassMatcher",
     "CartHandler",
-    "Router"
+    "Router",
+    "Likehandler"
   ];
 
   return (
@@ -42,6 +44,7 @@ export default function App() {
                 else if (item === "PassMatcher") setArray(<PassMatcher />);
                 else if (item === "CartHandler") setArray(<CartHandler />);
                 else if (item === "Router") setArray(<Router />);
+                else if (item === "Likehandler") setArray(<LikeHandler />);
               }}
             >
               {item}
