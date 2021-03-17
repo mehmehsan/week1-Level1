@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 
 export default function PostHandler() {
-  const [textcount, setTextcount] = useState(1);
+  const [textcount, setTextcount] = useState(0.5);
+  const [color, setColor] = useState("grey");
 
   return (
     <div>
@@ -11,6 +12,8 @@ export default function PostHandler() {
         type="text"
         onChange={(e) => {
           setTextcount(e.target.value);
+          if (e.target.value.length > 56) setColor("red");
+          else setColor("grey");
         }}
       />
       <br />
@@ -36,7 +39,7 @@ export default function PostHandler() {
             fill="none"
             stroke-width="2"
             r="9"
-            stroke="grey"
+            stroke={color}
             stroke-linecap="round"
             style={{
               strokeDashoffset: 56.5487 - textcount.length,
@@ -48,9 +51,12 @@ export default function PostHandler() {
       {textcount && textcount.length < 56 && (
         <h2>Text count (max - 56 words) : {textcount.length} </h2>
       )}
+
       {!textcount && <h1> Insert Text </h1>}
       {textcount && textcount.length >= 56 && (
-        <h2>Text count : Max- Char reached 56 words </h2>
+        <h2>
+          Text count : Max- Char reached 56 words : {textcount.length - 56}{" "}
+        </h2>
       )}
       <br />
     </div>
