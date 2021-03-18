@@ -13,7 +13,7 @@ import Dark from "./ex/dark";
 import "./styles.css";
 
 export default function App() {
-  const [array, setArray] = useState(<PostHandler />);
+  const [array, setArray] = useState(<Counter />);
   const arr = [
     "Counter",
     "MyFigma",
